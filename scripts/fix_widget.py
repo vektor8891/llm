@@ -25,7 +25,7 @@ import glob
 
 # Get all .ipynb files in the directory and subdirectories
 notebook_paths = glob.glob(
-    'projects/11_bert_pretraining/**/*.ipynb', recursive=True)
+    'projects/**/*.ipynb', recursive=True)
 
 for notebook_path in notebook_paths:
     # Load the notebook
