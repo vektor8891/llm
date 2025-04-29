@@ -16,6 +16,9 @@ Dependencies:
 
 Usage:
 Run the script to clean up 'metadata.widgets' from all notebooks in the specified directory.
+
+Example:
+    python3 scripts/fix_widget.py
 """
 import json
 import glob
