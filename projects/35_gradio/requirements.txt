@@ -1,0 +1,4 @@
+python-dotenv
+ibm-watsonx-ai
+langchain-ibm
+gradio
