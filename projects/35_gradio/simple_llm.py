@@ -18,8 +18,6 @@ parameters = {
     GenParams.TEMPERATURE: 0.5,  # This randomness or creativity of the model's responses
 }
 
-project_id = "skills-network"
-
 # Wrap up the model into WatsonxLLM inference
 watsonx_llm = WatsonxLLM(
     model_id=model_id,
