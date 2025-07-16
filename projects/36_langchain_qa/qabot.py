@@ -4,7 +4,7 @@ from rag_utils import retriever_qa
 # Create Gradio interface
 rag_application = gr.Interface(
     fn=retriever_qa,
-    allow_flagging="never",
+    flagging_mode="never",
     inputs=[
         gr.File(label="Upload PDF File", file_count="single", file_types=[
                 '.pdf'], type="filepath"),  # Drag and drop file upload
