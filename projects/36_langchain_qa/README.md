@@ -13,6 +13,7 @@ pip install -r requirements.txt
 # check installed packagess
 pip list
 pip list | grep -E "(langchain|gradio|ibm-watsonx|chromadb)"
+pip freeze > requirements.txt
 
 # deactivate environment
 conda deactivate
