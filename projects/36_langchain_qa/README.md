@@ -15,6 +15,14 @@ pip list
 pip list | grep -E "(langchain|gradio|ibm-watsonx|chromadb)"
 pip freeze > requirements.txt
 
+# upgrade langchain imports (optional)
+pip install langchain-cli
+langchain-cli migrate --diff .  # preview changes
+langchain-cli migrate .         # apply changes
+
+# run application
+python qabot.py
+
 # deactivate environment
 conda deactivate
 ```
