@@ -35,16 +35,17 @@ conda deactivate
 # navigate to project directory
 cd projects/37_langchain_rag
 
+# regenerate lock file if pyproject.toml was modified
+poetry lock
+
 # install dependencies and create virtual environment
-poetry install
+# Note: Uses package-mode = false for script-based projects
+poetry install 
 
-# activate the poetry shell
-poetry shell
+# activate the poetry environment (Poetry 2.0+)
+poetry env activate
 
-# run application
-python qabot.py
-
-# or run without entering the shell
+# or run without activating the environment (recommended)
 poetry run python qabot.py
 
 # add new dependencies
@@ -53,8 +54,53 @@ poetry add package-name
 # remove dependencies
 poetry remove package-name
 
-# exit poetry shell
-exit
+# deactivate environment (if using env activate)
+deactivate
+
+# OR exit poetry shell (if using legacy shell command)
+# exit
+```
+
+### Troubleshooting Poetry Issues
+
+If you get "ModuleNotFoundError" when running `python qabot.py`:
+
+```sh
+# Make sure you're using Poetry's environment, not the base environment
+# Option 1: Use poetry run (recommended)
+poetry run python qabot.py
+
+# Option 2: Activate the environment first
+poetry env activate
+which python  # should show Poetry's virtual environment path
+python qabot.py
+```
+
+If you encounter "shell command is not available" error (Poetry 2.0+):
+
+```sh
+# Use the new env activate command instead
+poetry env activate
+
+# Or install the shell plugin for backward compatibility
+poetry self add poetry-plugin-shell
+poetry shell
+```
+
+If you encounter errors about the current project not being installable:
+
+```sh
+# Install dependencies without installing the current project as a package
+poetry install --no-root
+```
+
+If you get "pyproject.toml changed significantly" error:
+
+```sh
+# Regenerate the lock file to match current dependencies
+poetry lock
+# Then install
+poetry install
 ```
 
 ## Poetry Benefits
