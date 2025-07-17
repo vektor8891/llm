@@ -16,7 +16,6 @@ from langchain_community.document_loaders import (
     JSONLoader,
     CSVLoader,
     UnstructuredCSVLoader,
-    WebBaseLoader,
     Docx2txtLoader,
     UnstructuredFileLoader
 )
