@@ -9,7 +9,18 @@ from ibm_watsonx_ai.metanames import GenTextParamsMetaNames as GenParams
 from ibm_watsonx_ai.metanames import EmbedTextParamsMetaNames
 from langchain_ibm.llms import WatsonxLLM
 from langchain_ibm.embeddings import WatsonxEmbeddings
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import (
+    PyPDFLoader,
+    TextFileLoader,
+    PyMuPDFLoader,
+    UnstructuredMarkdownLoader,
+    JSONLoader,
+    CSVLoader,
+    UnstructuredCSVLoader,
+    WebBaseLoader,
+    Docx2txtLoader,
+    UnstructuredFileLoader
+)
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
@@ -35,10 +46,45 @@ def get_llm():
 
 
 def document_loader(file):
-    """Load a PDF document and return its content."""
-    loader = PyPDFLoader(file.name)
-    loaded_document = loader.load()
-    return loaded_document
+    """Load various document types and return their content."""
+    # Get file extension
+    _, extension = os.path.splitext(file.name)
+    extension = extension.lower()
+
+    # Select appropriate loader based on file extension
+    if extension == '.pdf':
+        loader = PyMuPDFLoader(file.name)
+    elif extension == '.txt':
+        loader = TextFileLoader(file.name)
+    elif extension in ['.md', '.markdown']:
+        loader = UnstructuredMarkdownLoader(file.name)
+    elif extension == '.json':
+        loader = JSONLoader(file.name, jq_schema='.', text_content=False)
+    elif extension == '.csv':
+        try:
+            loader = CSVLoader(file.name)
+        except Exception:
+            loader = UnstructuredCSVLoader(file.name)
+    elif extension in ['.doc', '.docx']:
+        loader = Docx2txtLoader(file.name)
+    elif extension in ['.html', '.htm']:
+        loader = UnstructuredFileLoader(file.name)
+    else:
+        try:
+            loader = UnstructuredFileLoader(file.name)
+        except Exception as e:
+            raise ValueError(
+                f"Unsupported file type: {extension}. "
+                f"Supported formats: .pdf, .txt, .md, .json, .csv, .doc, .docx, .html. "
+                f"Error: {str(e)}"
+            )
+
+    # Load the document using the selected loader
+    try:
+        loaded_document = loader.load()
+        return loaded_document
+    except Exception as e:
+        raise ValueError(f"Failed to load document {file.name}: {str(e)}")
 
 
 def text_splitter(data):
