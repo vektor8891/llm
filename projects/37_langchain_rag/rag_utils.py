@@ -29,7 +29,8 @@ def get_llm():
     """Initialize and return a WatsonxLLM instance with specified parameters."""
     load_dotenv("../../.env")
 
-    model_id = 'mistralai/mixtral-8x7b-instruct-v01'
+    # Updated to use the recommended non-deprecated model
+    model_id = 'mistralai/mistral-small-3-1-24b-instruct-2503'
     parameters = {
         GenParams.MAX_NEW_TOKENS: 256,
         GenParams.TEMPERATURE: 0.5,

@@ -79,6 +79,15 @@ If you get "cannot import name 'TextFileLoader'" error:
 # The code has been updated to use the correct import
 ```
 
+If you get "pymupdf package not found" error:
+
+```sh
+# This dependency has been added to pyproject.toml
+# Run poetry lock and poetry install to install it
+poetry lock
+poetry install
+```
+
 If you get "ModuleNotFoundError" when running `python qabot.py`:
 
 ```sh
