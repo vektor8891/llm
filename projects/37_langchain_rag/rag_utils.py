@@ -10,8 +10,7 @@ from ibm_watsonx_ai.metanames import EmbedTextParamsMetaNames
 from langchain_ibm.llms import WatsonxLLM
 from langchain_ibm.embeddings import WatsonxEmbeddings
 from langchain_community.document_loaders import (
-    PyPDFLoader,
-    TextFileLoader,
+    TextLoader,
     PyMuPDFLoader,
     UnstructuredMarkdownLoader,
     JSONLoader,
@@ -55,7 +54,7 @@ def document_loader(file):
     if extension == '.pdf':
         loader = PyMuPDFLoader(file.name)
     elif extension == '.txt':
-        loader = TextFileLoader(file.name)
+        loader = TextLoader(file.name)
     elif extension in ['.md', '.markdown']:
         loader = UnstructuredMarkdownLoader(file.name)
     elif extension == '.json':

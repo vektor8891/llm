@@ -63,6 +63,22 @@ deactivate
 
 ### Troubleshooting Poetry Issues
 
+If you get "USER_AGENT environment variable not set" warning:
+
+```sh
+# Optional: Set USER_AGENT to identify your requests
+export USER_AGENT="my-app/1.0"
+# Or add to your shell profile (.bashrc, .zshrc, etc.)
+echo 'export USER_AGENT="my-app/1.0"' >> ~/.bashrc
+```
+
+If you get "cannot import name 'TextFileLoader'" error:
+
+```sh
+# This is fixed by using TextLoader instead of TextFileLoader
+# The code has been updated to use the correct import
+```
+
 If you get "ModuleNotFoundError" when running `python qabot.py`:
 
 ```sh
