@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "react-agent"
+name = "langgraph-agents"
 version = "0.1.0"
-description = "A React Agent project using LangChain and LLMs"
+description = "A LangGraph Agents project using LangGraph and LLMs"
 authors = ["Viktor Szabo <szabo_viktor@lilly.com>"]
 readme = "README.md"
 package-mode = false

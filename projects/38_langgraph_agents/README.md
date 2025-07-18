@@ -12,7 +12,7 @@ poetry lock
 poetry install 
 
 # install the kernel in Jupyter (important for VS Code notebook usage)
-poetry run python -m ipykernel install --user --name=react-agent --display-name="React Agent (Poetry)"
+poetry run python -m ipykernel install --user --name=langgraph-agent --display-name="LangGraph Agent (Poetry)"
 
 # get the virtual environment path (you'll need this for VS Code)
 poetry env info --path
