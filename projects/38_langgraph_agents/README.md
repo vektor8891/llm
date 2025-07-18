@@ -2,7 +2,7 @@
 
 ```sh
 # navigate to project directory
-cd projects/38_react_agent
+cd projects/38_langgraph_agents
 
 # regenerate lock file if pyproject.toml was modified
 poetry lock
@@ -26,7 +26,7 @@ poetry env info --path
    - Python extension (ms-python.python)
    - Jupyter extension (ms-toolsai.jupyter)
 
-2. **Open the notebook**: Open `38_react_agent.ipynb` in VS Code
+2. **Open the notebook**: Open `38_langgraph_agents.ipynb` in VS Code
 
 3. **Select the Poetry kernel**:
    - Click on the kernel selector in the top-right of the notebook
@@ -50,7 +50,7 @@ VS Code can often auto-detect Poetry environments:
 1. **Open VS Code in the project directory**:
 
    ```sh
-   cd projects/38_react_agent
+   cd projects/38_langgraph_agents
    code .
    ```
 
@@ -111,7 +111,7 @@ If VS Code shows "Kernel not found" or wrong Python version:
 
 # Or restart VS Code completely
 # Make sure you're opening VS Code from the project directory
-cd projects/38_react_agent
+cd projects/38_langgraph_agents
 code .
 ```
 
