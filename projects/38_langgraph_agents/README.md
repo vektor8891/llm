@@ -32,8 +32,8 @@ poetry env info --path
    - Click on the kernel selector in the top-right of the notebook
    - Choose "Select Another Kernel..."
    - Select "Python Environments..."
-   - Look for "React Agent (Poetry)" OR manually select:
-     `/Users/L015680/Library/Caches/pypoetry/virtualenvs/react-agent-474vt4AU-py3.12/bin/python`
+   - Look for "LangGraph Agents (Poetry)" OR manually select:
+     `/Users/L015680/Library/Caches/pypoetry/virtualenvs/langgraph-agents-YCnhQksX-py3.12/bin/python`
 
 4. **Verify the environment**: Run this in the first cell:
 
@@ -58,7 +58,7 @@ VS Code can often auto-detect Poetry environments:
    - Press `Cmd+Shift+P` (macOS)
    - Type "Python: Select Interpreter"
    - Choose the Poetry virtual environment:
-     `/Users/L015680/Library/Caches/pypoetry/virtualenvs/react-agent-474vt4AU-py3.12/bin/python`
+     `/Users/L015680/Library/Caches/pypoetry/virtualenvs/langgraph-agents-YCnhQksX-py3.12/bin/python`
 
 3. **Open the notebook**: VS Code should automatically use the selected interpreter
 
@@ -94,7 +94,7 @@ If VS Code doesn't show the Poetry kernel:
 
 ```sh
 # First, make sure the kernel is installed
-poetry run python -m ipykernel install --user --name=react-agent --display-name="React Agent (Poetry)"
+poetry run python -m ipykernel install --user --name=langgraph-agents --display-name="LangGraph Agents (Poetry)"
 
 # Get the virtual environment path
 poetry env info --path
@@ -132,14 +132,14 @@ If you get "Kernel not found" error in Jupyter:
 
 ```sh
 # Make sure the kernel is properly installed
-poetry run python -m ipykernel install --user --name=react-agent --display-name="React Agent (Poetry)"
+poetry run python -m ipykernel install --user --name=langgraph-agents --display-name="LangGraph Agents (Poetry)"
 
 # List available kernels
 jupyter kernelspec list
 
 # If needed, remove and reinstall kernel
-jupyter kernelspec uninstall react-agent
-poetry run python -m ipykernel install --user --name=react-agent --display-name="React Agent (Poetry)"
+jupyter kernelspec uninstall langgraph-agents
+poetry run python -m ipykernel install --user --name=langgraph-agents --display-name="LangGraph Agents (Poetry)"
 ```
 
 If packages are not found in Jupyter notebook:
@@ -157,7 +157,7 @@ If you get "USER_AGENT environment variable not set" warning:
 
 ```sh
 # Optional: Set USER_AGENT to identify your requests
-export USER_AGENT="react-agent/1.0"
+export USER_AGENT="langgraph-agents/1.0"
 ```
 
 If you get "ModuleNotFoundError" when running `python react_agent.py`:
@@ -165,12 +165,12 @@ If you get "ModuleNotFoundError" when running `python react_agent.py`:
 ```sh
 # Make sure you're using Poetry's environment, not the base environment
 # Option 1: Use poetry run (recommended)
-poetry run python react_agent.py
+poetry run python langgraph_agents.py
 
 # Option 2: Activate the environment first
 poetry env activate
 which python  # should show Poetry's virtual environment path
-python react_agent.py
+python langgraph_agents.py
 ```
 
 If you encounter "shell command is not available" error (Poetry 2.0+):
