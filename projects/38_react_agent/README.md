@@ -32,7 +32,8 @@ poetry env info --path
    - Click on the kernel selector in the top-right of the notebook
    - Choose "Select Another Kernel..."
    - Select "Python Environments..."
-   - Look for "React Agent (Poetry)" or the path from `poetry env info --path`
+   - Look for "React Agent (Poetry)" OR manually select:
+     `/Users/L015680/Library/Caches/pypoetry/virtualenvs/react-agent-474vt4AU-py3.12/bin/python`
 
 4. **Verify the environment**: Run this in the first cell:
 
@@ -56,7 +57,8 @@ VS Code can often auto-detect Poetry environments:
 2. **Select Python interpreter**:
    - Press `Cmd+Shift+P` (macOS)
    - Type "Python: Select Interpreter"
-   - Choose the Poetry virtual environment (usually shows as `.venv` or similar)
+   - Choose the Poetry virtual environment:
+     `/Users/L015680/Library/Caches/pypoetry/virtualenvs/react-agent-474vt4AU-py3.12/bin/python`
 
 3. **Open the notebook**: VS Code should automatically use the selected interpreter
 
