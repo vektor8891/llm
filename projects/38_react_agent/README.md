@@ -1,4 +1,4 @@
-# Setup using Poetry
+# Setup using Poetry for Jupyter Notebooks
 
 ```sh
 # navigate to project directory
@@ -14,23 +14,78 @@ poetry install
 # activate the poetry environment (Poetry 2.0+)
 poetry env activate
 
-# or run without activating the environment (recommended)
-poetry run python react_agent.py
+# install the kernel in Jupyter (important for notebook usage)
+poetry run python -m ipykernel install --user --name=react-agent --display-name="React Agent (Poetry)"
 
+# start Jupyter Lab (recommended) or Jupyter Notebook
+poetry run jupyter lab
+# OR
+poetry run jupyter notebook
+
+# alternatively, run without activating environment
+poetry run jupyter lab
+```
+
+## Working with Jupyter Notebooks
+
+Once Jupyter is running:
+
+1. **Select the correct kernel**: When opening `38_react_agent.ipynb`, make sure to select the "React Agent (Poetry)" kernel
+2. **Verify environment**: Run a cell with `!which python` to ensure you're using Poetry's virtual environment
+3. **Install additional packages**: Use `poetry add package-name` in terminal, then restart the kernel
+
+## Package Management
+
+```sh
 # add new dependencies
 poetry add package-name
 
 # remove dependencies
 poetry remove package-name
 
+# update all dependencies
+poetry update
+
+# show installed packages
+poetry show
+```
+
+## Environment Management
+
+```sh
 # deactivate environment (if using env activate)
 deactivate
 
-# OR exit poetry shell (if using legacy shell command)
-# exit
+# remove the Jupyter kernel (if needed)
+jupyter kernelspec uninstall react-agent
 ```
 
-## Troubleshooting Poetry Issues
+## Troubleshooting Poetry + Jupyter Issues
+
+If you get "Kernel not found" error in Jupyter:
+
+```sh
+# Make sure the kernel is properly installed
+poetry run python -m ipykernel install --user --name=react-agent --display-name="React Agent (Poetry)"
+
+# List available kernels
+jupyter kernelspec list
+
+# If needed, remove and reinstall kernel
+jupyter kernelspec uninstall react-agent
+poetry run python -m ipykernel install --user --name=react-agent --display-name="React Agent (Poetry)"
+```
+
+If packages are not found in Jupyter notebook:
+
+```sh
+# Restart the kernel after installing new packages
+# In Jupyter: Kernel -> Restart Kernel
+
+# Or verify the Python path in a notebook cell:
+import sys
+print(sys.executable)
+```
 
 If you get "USER_AGENT environment variable not set" warning:
 
