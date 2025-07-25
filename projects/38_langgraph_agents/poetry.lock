@@ -2036,6 +2036,18 @@ test = ["jaraco.test (>=5.4)", "pytest (>=6,!=8.1.*)", "zipp (>=3.17)"]
 type = ["pytest-mypy"]
 
 [[package]]
+name = "inflection"
+version = "0.5.1"
+description = "A port of Ruby on Rails inflector to Python"
+optional = false
+python-versions = ">=3.5"
+groups = ["main"]
+files = [
+    {file = "inflection-0.5.1-py2.py3-none-any.whl", hash = "sha256:f38b2b640938a4f35ade69ac3d053042959b62a0f1076a5bbaa1b9526605a8a2"},
+    {file = "inflection-0.5.1.tar.gz", hash = "sha256:1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"},
+]
+
+[[package]]
 name = "ipykernel"
 version = "6.29.5"
 description = "IPython Kernel for Jupyter"
@@ -3759,6 +3771,28 @@ aiohttp = ["aiohttp", "httpx-aiohttp (>=0.1.8)"]
 datalib = ["numpy (>=1)", "pandas (>=1.2.3)", "pandas-stubs (>=1.1.0.11)"]
 realtime = ["websockets (>=13,<16)"]
 voice-helpers = ["numpy (>=2.0.2)", "sounddevice (>=0.5.1)"]
+
+[[package]]
+name = "openapi"
+version = "2.0.0"
+description = "Python OpenAPI 2.0 (Swagger) object model"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "openapi-2.0.0-py2.py3-none-any.whl", hash = "sha256:caaf621b98434e36853d0215c219e78002ed9959c9d21c9e2744ab460a6f7088"},
+    {file = "openapi-2.0.0.tar.gz", hash = "sha256:dad6f8e2c638500113820f04763fcf6eac1fea0173340945973325a28f336264"},
+]
+
+[package.dependencies]
+inflection = ">=0.5.1"
+jsonschema = ">=3.2.0"
+
+[package.extras]
+lint = ["flake8", "flake8-isort", "flake8-print"]
+test = ["PyHamcrest (>=2.1.0)", "PyYAML (>=6.0.1)", "coverage (>=7.5.3)", "pytest (>=8.2.0)", "pytest-cov (>=5.0.0)"]
+typehinting = ["mypy", "types-PyYAML", "types-psycopg2", "types-python-dateutil", "types-pytz", "types-setuptools"]
+yaml = ["PyYAML (>=3.12)"]
 
 [[package]]
 name = "opentelemetry-api"
@@ -7141,4 +7175,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.14"
-content-hash = "32ed271f55c106452d3a2eab6fa268e514ae9c48aeb05d4accf5362da64b8f0b"
+content-hash = "4a570f5a420d545b9d58a93b9c6ab26f3834600d81cf670815d02317027b127b"
