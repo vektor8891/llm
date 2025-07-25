@@ -32,7 +32,7 @@ langgraph-checkpoint-sqlite = "^2.0.10"
 pydantic = "^2.11.7"
 docarray = "^0.41.0"
 wikipedia = "^1.4.0"
-openapi = "^2.0.0"
+openapi-pydantic = "^0.5.1"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
