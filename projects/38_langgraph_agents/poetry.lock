@@ -6739,6 +6739,21 @@ files = [
 ]
 
 [[package]]
+name = "wikipedia"
+version = "1.4.0"
+description = "Wikipedia API for Python"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "wikipedia-1.4.0.tar.gz", hash = "sha256:db0fad1829fdd441b1852306e9856398204dc0786d2996dd2e0c8bb8e26133b2"},
+]
+
+[package.dependencies]
+beautifulsoup4 = "*"
+requests = ">=2.0.0,<3.0.0"
+
+[[package]]
 name = "xxhash"
 version = "3.5.0"
 description = "Python binding for xxHash"
@@ -7126,4 +7141,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.14"
-content-hash = "238b59b27587a274f2e23b97fc086ad727fc551906a0131ffb3d646c94ca815e"
+content-hash = "32ed271f55c106452d3a2eab6fa268e514ae9c48aeb05d4accf5362da64b8f0b"
