@@ -34,6 +34,7 @@ docarray = "^0.41.0"
 wikipedia = "^1.4.0"
 openapi-pydantic = "^0.5.1"
 panel = "^1.7.5"
+jupyter-bokeh = "^4.0.5"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
